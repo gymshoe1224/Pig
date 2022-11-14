@@ -60,16 +60,18 @@ struct ContentView: View {
                     Spacer()
                 }
             }
-            alert(isPresented: $gameOver, content: {
-                Alert(title: Text("You won the game!"), dismissButton: .destructive(Text("Play again"), action: {
-                    withAnimation(Animation.default) {
-                        gameScore = 0
-                        gameOver = false
-                    }
-                }))
-            })
+            .alert(isPresented: $gameOver, content: {
+                Alert(title: Text("You won the game!"),
+                      dismissButton: .destructive(Text("Play again"),
+                      action: {
+                        withAnimation(Animation.default) {
+                            gameScore = 0
+                            gameOver = false
+                        }
+                    }))
+                })
+            }
         }
-    }
     func endTurn() {
         turnScore = 0
         randomValue = 0
